@@ -9,7 +9,8 @@ include the main.css file inside src/CSS/tailwind-styles/main.css
 
 ## always pull from upstream before pushing
 
-
+## tailwind docs
+https://tailwindcss.com/docs/
 
 ## Learn More
 
