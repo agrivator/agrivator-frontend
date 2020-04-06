@@ -1,5 +1,6 @@
 import React from 'react';
 import './CSS/tailwind-styles/main.css'
+import NameForm from './input.js'
 
 function App() {
   return (
