@@ -689,6 +689,8 @@ module.exports = {
     transitionTimingFunction: ['responsive'],
     transitionDuration: ['responsive'],
   },
-  corePlugins: {},
+  corePlugins: {
+      backgroundColor: true,
+  },
   plugins: [],
 }

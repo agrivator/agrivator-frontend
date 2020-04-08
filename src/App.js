@@ -1,13 +1,16 @@
 import React from 'react';
 import './CSS/tailwind-styles/main.css'
-import NameForm from './input.js'
+
+/**
+ * *Components Imports
+ */
+import Navbar from './compnents/Navbar'
+// import NameForm from './compnents/NameForm';
 
 function App() {
-  return (
+  return (  
     <div className="App">
-      <div className="container mx-auto bg-teal-400 shadow-xl h-screen">
-		<h1>Helo world</h1>	
-      </div>
+      <Navbar/>
     </div>
   );
 }

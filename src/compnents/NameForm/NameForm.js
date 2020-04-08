@@ -1,9 +1,9 @@
-import React,{ Component } form 'react';
-import ReactDOM from 'react-dom';
-import '.src/CSS/tailwind-style/main.css';
-import App from './App';
+import React,{ Component } from 'react';
+// import ReactDOM from 'react-dom';
+import '../../CSS/tailwind-styles/main.css'
+// import App from './App';
 
-class NameForm extends React.Component {
+class NameForm extends Component {
   constructor(props) {
     super(props);
     this.state = {value: ''};
