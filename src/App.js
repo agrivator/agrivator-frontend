@@ -21,6 +21,7 @@ import SideBar from './compnents/SideBar'
 function App() {
   return (  
     <div className="App">
+        <Navbar/>
         <SideBar/>
         <FormSection/>
     </div>

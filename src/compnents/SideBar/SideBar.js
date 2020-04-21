@@ -11,6 +11,9 @@ import Nav from 'react-bootstrap/Nav'
 const SideBar = () => {
     return (
         <Nav defaultActiveKey="/home" fill={true} justify={true} className="sidebar flex-column justify-center">
+            <div className="Navbar__Link Navbar__Link-toggle">
+                <i className="fas fa-bars"></i>
+            </div>
             <Nav.Link href="/home">Active</Nav.Link>
             <Nav.Link eventKey="link-1">Link</Nav.Link>
             <Nav.Link eventKey="link-2">Link</Nav.Link>
