@@ -6,7 +6,7 @@ After cloning for the first time run
 
 ### ` npm i ` 
 
-to automatically install all dependencies 
+In the project directory to automatically install all dependencies 
 
 ## always pull from upstream before pushing
 
