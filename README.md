@@ -2,6 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Agrivator Frontend
 
+## After cloning for the first time run : npm i to automatically install all dependencies 
+
 ## always pull from upstream before pushing
 
 ## Available Scripts
