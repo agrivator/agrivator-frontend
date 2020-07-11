@@ -1,9 +1,9 @@
 import React from 'react';
 
-function TextDisplay({message}) {
+function TextDisplay(props) {
     return (
-        <div>
-            {message}
+        <div className="h5 text-secondary font-weight-light">
+            {props.message}
         </div>
     )
 }

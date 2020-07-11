@@ -17,12 +17,17 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <div className="text-danger">This is home page</div>
                 <Navbar/>
-                <TextDisplay message="Hi, input your data" />
+                <div className="space-50"></div>
+                <div className="space-50"></div>
+                <div className="container">
+                <TextDisplay message="Hi, you can enter your product data here."/>
                 <InputForm/>
-                <TextDisplay message="View your data" />
+                <div className="space-50"></div>
+                <TextDisplay message="You can view all your product entries here!" />
+                <div className="space-20"></div>
                 <ViewDataCard/>
+                </div>
             </div>
         )
     }
