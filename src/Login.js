@@ -1,13 +1,24 @@
-import React, { Component, useState} from 'react'
+import React, { Component, useState, useEffect} from 'react'
+import {Redirect} from 'react-router-dom';
 import axios from 'axios'
 
 import LoginForm from './components/LoginForm'
 
-const Login = () => {
+import {storeUser, storeToken, getAuthToken} from './helpers/authStore';
+
+const Login = (props) => {
         const [user, setUser] = useState({});
         // * username can be either email or username
         const [username, setUsername] = useState("bonnietest");
         const [password, setPassword] = useState("bonnietest");
+
+
+        useEffect(() => {
+            const token = getAuthToken(); 
+            if(token){
+                props.history.push('/home'); 
+            }
+        }, [])
 
         // *Function to fetch token and user details from strapi
         // @args : username and password
@@ -22,13 +33,18 @@ const Login = () => {
         }
 
         // *Function to handle submit event
-        const submitHandler = (e) => {
+        const submitHandler = async (e) => {
             e.preventDefault();
 
-            // Fetching data from strapi
-            const data = fetchLogin(username, password);
-            console.log(data);
+            // *Fetching data from strapi
+            const data = await fetchLogin(username, password);
+
+            // *Storing token and user data to localStorage
+            storeUser(data.user);
+            storeToken(data.jwt);
         }
+
+
 
         return (
             <div>
