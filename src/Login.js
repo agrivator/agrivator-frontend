@@ -27,9 +27,10 @@ const Login = () => {
         const submitHandler = async (e) => {
             e.preventDefault();
 
-            // Fetching data from strapi
+            // *Fetching data from strapi
             const data = await fetchLogin(username, password);
-            console.log(data);
+
+            // *Storing token and user data to localStorage
             storeUser(data.user);
             storeToken(data.jwt);
         }

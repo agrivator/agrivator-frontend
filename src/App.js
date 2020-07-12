@@ -7,11 +7,13 @@ import Home from './Home'
 import Login from './Login'
 import Default from './components/Default'
 
+import { PrivateRoute } from './helpers/PrivateRoute';
+
 function App() {
   return (
     <React.Fragment>
         <Switch>
-          <Route exact path="/home" component={Home} />
+          <PrivateRoute exact path="/home" component={Home} />
           <Route  path="/login" component={Login} />
           <Route  component={Default} />
         </Switch>
