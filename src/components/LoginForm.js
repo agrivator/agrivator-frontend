@@ -13,6 +13,7 @@ class LoginForm extends Component {
         return (
             <div>
                  ------  Login Form ------ 
+                 <button onClick={this.props.submitHandler} className="btn btn-danger">Login</button>
             </div>
         )
     }
