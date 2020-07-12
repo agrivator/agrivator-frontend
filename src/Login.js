@@ -3,6 +3,8 @@ import axios from 'axios'
 
 import LoginForm from './components/LoginForm'
 
+import {storeUser, storeToken} from './helpers/authStore';
+
 const Login = () => {
         const [user, setUser] = useState({});
         // * username can be either email or username
@@ -22,12 +24,14 @@ const Login = () => {
         }
 
         // *Function to handle submit event
-        const submitHandler = (e) => {
+        const submitHandler = async (e) => {
             e.preventDefault();
 
             // Fetching data from strapi
-            const data = fetchLogin(username, password);
+            const data = await fetchLogin(username, password);
             console.log(data);
+            storeUser(data.user);
+            storeToken(data.jwt);
         }
 
         return (
