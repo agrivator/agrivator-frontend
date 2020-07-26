@@ -11,14 +11,22 @@ const Login = (props) => {
         // * username can be either email or username
         const [username, setUsername] = useState("bonnietest");
         const [password, setPassword] = useState("bonnietest");
-
+        // *To check if token present in localStorage
+        const [isToken, setIsToken] = useState("");
 
         useEffect(() => {
             const token = getAuthToken(); 
             if(token){
-                props.history.push('/home'); 
+                setIsToken(token);
+                // props.history.push('/home'); 
             }
         }, [])
+        
+        useEffect(() => {
+            if(isToken && isToken != ''){
+                props.history.push('/home');
+            }
+        }, [isToken])
 
         // *Function to fetch token and user details from strapi
         // @args : username and password
@@ -42,6 +50,7 @@ const Login = (props) => {
             // *Storing token and user data to localStorage
             storeUser(data.user);
             storeToken(data.jwt);
+            setIsToken(data.jwt);
         }
 
 
