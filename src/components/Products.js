@@ -17,8 +17,24 @@ const Products = () => {
     }, [])
 
     return (
-        <>
-            <ViewDataCard/>     
+        <>  
+            {(products.length === 0)? 
+
+                <div className="text-center">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+
+            : 
+                products.map((product)=>{
+                    return <ViewDataCard key={product.id} product={product} />
+                })
+            
+            
+            }
+            {console.log(products)}
+        
         </>
     )
 }
