@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import Navbar from './components/Navbar'
 import InputForm from './components/InputForm'
 import PrimaryButton from './components/PrimaryButton'
-import ViewDataCard from './components/ViewDataCard'
+// import ViewDataCard from './components/ViewDataCard'
 import TextDisplay from './components/TextDisplay'
+import Products from './components/Products'
 
 class Home extends Component {
     constructor(props) {
@@ -26,7 +27,8 @@ class Home extends Component {
                 <div className="space-50"></div>
                 <TextDisplay message="You can view all your product entries here!" />
                 <div className="space-20"></div>
-                <ViewDataCard/>
+                {/* <ViewDataCard/> */}
+                <Products/>
                 </div>
             </div>
         )
