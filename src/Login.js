@@ -36,6 +36,7 @@ const Login = (props) => {
                 identifier: usr,
                 password:pwd
             })
+            console.log(response.status)
             return response.data;
             
         }
@@ -57,7 +58,6 @@ const Login = (props) => {
 
         return (
             <div>
-                <div className="text-danger">This is login page</div>
                 <LoginForm submitHandler={submitHandler}/>
             </div>
         )
