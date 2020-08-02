@@ -12,10 +12,10 @@ class LoginForm extends Component {
     render() {
         return (
             <div>
-                <section class="main-card">
-                    <div class="card-content">
-                        <div class="content-right">
-                            <div class="header">
+                <section className="main-card">
+                    <div className="card-content">
+                        <div className="content-right">
+                            <div className="header">
                                 <img src="logo.png" alt="logo" width="50px" height="50px" />
                                 <h1>AGRIVATOR</h1><br />
                             </div>
@@ -24,22 +24,22 @@ class LoginForm extends Component {
                                 Login to Agrivator data <br />entry panel using your <br />
                                 username and password </p>
                         </div>
-                        <div class="content-left">
-                        <div class="container">
+                        <div className="content-left">
+                        <div className="container">
                             <form>
-                                <div class="group">      
+                                <div className="group">      
                                   <input type="text" required />
-                                  <span class="highlight"></span>
-                                  <span class="bar"></span>
+                                  <span className="highlight"></span>
+                                  <span className="bar"></span>
                                   <label>Username</label>
                                 </div>
                                   
-                                <div class="group">      
+                                <div className="group">      
                                   <input type="Password" required />
-                                  <span class="highlight"></span>
-                                  <span class="bar"></span>
+                                  <span className="highlight"></span>
+                                  <span className="bar"></span>
                                   <label>Password</label><br /> <br />
-                                  <button class="btn" onClick={this.props.submitHandler} >Login</button>
+                                  <button className="btn" onClick={this.props.submitHandler} >Login</button>
                                 
                                 </div>
                             </form>
