@@ -37,7 +37,6 @@ const Products = () => {
         let productsModded = [];
         inputProducts.forEach(product => {
             product.product_inventories.forEach(product_inventory => {
-                console.log(`${product.name} - ${product_inventory.unit} - ${product_inventory.price}`)
                 const newProd = { ...product, product_inventory };
                 productsModded.push(newProd)
             })
