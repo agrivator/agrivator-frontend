@@ -12,7 +12,7 @@ const Products = () => {
         (async () => {
             const resData = await getProducts();
             const flatResData = flattenProducts(resData);
-            console.log(resData)
+            console.log(flatResData)
             setProducts(flatResData);
         })();
 
