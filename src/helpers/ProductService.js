@@ -12,3 +12,22 @@ export const getProducts = async () => {
     const data = res.data;
     return data;
 }
+
+/*
+Post product schema
+{
+  "name": "string",
+  "description": "string",
+  "category": "fruitsAndVegetables",
+  "product_inventories": [
+    "string"
+  ],
+  "subCategory": "vegetables",
+  "created_by": "string",
+  "updated_by": "string"
+}
+*/
+
+// export const postProducts = async (product) => {
+
+// }

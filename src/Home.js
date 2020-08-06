@@ -4,7 +4,7 @@ import InputForm from './components/InputForm'
 import PrimaryButton from './components/PrimaryButton'
 // import ViewDataCard from './components/ViewDataCard'
 import TextDisplay from './components/TextDisplay'
-import Products from './components/Products'
+import GetProducts from './helpers/GetProducts'
 
 class Home extends Component {
     constructor(props) {
@@ -28,7 +28,7 @@ class Home extends Component {
                 <TextDisplay message="You can view all your product entries here!" />
                 <div className="space-20"></div>
                 {/* <ViewDataCard/> */}
-                <Products/>
+                <GetProducts/>
                 </div>
             </div>
         )

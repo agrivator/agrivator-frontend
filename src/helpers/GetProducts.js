@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import ViewDataCard from './ViewDataCard';
+import ViewDataCard from '../components/ViewDataCard';
 
-import { getProducts } from '../helpers/ProductService';
+import { getProducts } from './ProductService';
 
-const Products = () => {
+const GetProducts = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -37,7 +37,6 @@ const Products = () => {
         let productsModded = [];
         inputProducts.forEach(product => {
             product.product_inventories.forEach(product_inventory => {
-                console.log(`${product.name} - ${product_inventory.unit} - ${product_inventory.price}`)
                 const newProd = { ...product, product_inventory };
                 productsModded.push(newProd)
             })
@@ -70,4 +69,4 @@ const Products = () => {
     )
 }
 
-export default Products;
+export default GetProducts;
