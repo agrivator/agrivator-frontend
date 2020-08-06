@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import ViewDataCard from './ViewDataCard';
+import ViewDataCard from '../components/ViewDataCard';
 
-import { getProducts } from '../helpers/ProductService';
+import { getProducts } from './ProductService';
 
-const Products = () => {
+const GetProducts = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -69,4 +69,4 @@ const Products = () => {
     )
 }
 
-export default Products;
+export default GetProducts;
