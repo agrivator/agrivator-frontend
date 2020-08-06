@@ -28,6 +28,7 @@ Post product schema
 }
 */
 
-// export const postProducts = async (product) => {
-
-// }
+export const postProducts = async (product) => {
+    const res = axios.post(`${baseUrl}/products`);
+    return res;
+}
