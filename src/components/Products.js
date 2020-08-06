@@ -12,6 +12,7 @@ const Products = () => {
         (async () => {
             const resData = await getProducts();
             const flatResData = flattenProducts(resData);
+            console.log(resData)
             setProducts(flatResData);
         })();
 
@@ -59,7 +60,7 @@ const Products = () => {
 
                 :
                 products.map((product) => {
-                    return <ViewDataCard key={product.id} product={product} />
+                    return <ViewDataCard key={product.product_inventory._id} product={product} />
                 })
 
 
