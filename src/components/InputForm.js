@@ -23,7 +23,7 @@ class InputForm extends Component {
                                 &nbsp;
                                 Product name </label>
                             <div className="col-sm-4">
-                                <input type="text" className="form-control" id="inputPassword" name=""/>
+                                <input type="text" className="form-control" id="inputPassword" name="name"/>
                             </div>
                         </div>
 
@@ -33,7 +33,7 @@ class InputForm extends Component {
                                 &nbsp;
                                 Category </label>
                             <div className="col-sm-4">
-                                <input type="text" className="form-control" id="inputPassword" name="" />
+                                <input type="text" className="form-control" id="inputPassword" name="category" />
                             </div>
                         </div>
 
@@ -43,7 +43,7 @@ class InputForm extends Component {
                                 &nbsp;
                                 Description </label>
                             <div className="col-sm-4">
-                                <input type="text" className="form-control" id="inputPassword" name="" />
+                                <input type="text" className="form-control" id="inputPassword" name="description" />
                             </div>
                         </div>
 
@@ -53,7 +53,7 @@ class InputForm extends Component {
                                 &nbsp;
                                 Price </label>
                             <div className="col-sm-4">
-                                <input type="text" className="form-control" id="inputPassword" name="" />
+                                <input type="text" className="form-control" id="inputPassword" name="price" />
                             </div>
                         </div>
                         <div className="form-group row">
@@ -62,7 +62,7 @@ class InputForm extends Component {
                                 &nbsp;
                                 Size </label>
                             <div className="col-sm-4">
-                                <input type="text" className="form-control" id="inputPassword" name="" />
+                                <input type="text" className="form-control" id="inputPassword" name="type" />
                             </div>
                         </div>
                         <div className="form-group row">
@@ -80,7 +80,7 @@ class InputForm extends Component {
                             <label htmlFor="inputPassword" className="col-sm-2 col-form-label">Image </label>
                             <div className="col-sm-4">
                                 <div className="custom-file">
-                                    <input type="file" className="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name=""/>
+                                    <input type="file" className="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="unit"/>
                                         <label className="custom-file-label" htmlFor="inputGroupFile01">Choose file</label>
                                 </div>
                             </div>
