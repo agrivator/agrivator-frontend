@@ -18,18 +18,6 @@ const GetProducts = () => {
 
     }, [])
 
-    //* This works
-    // let productsModded = [];
-    // products.forEach(product => {
-    //     product.product_inventories.forEach(product_inventory => {
-    //         console.log(`${product.name} - ${product_inventory.unit} - ${product_inventory.price}`)
-    //         const newProd = {...product, product_inventory};
-    //         productsModded.push(newProd)
-    //     })
-    // }) 
-    
-    
-
 
     // *Function that flattens product_inventories array
     // *Creates a new key called product_inventory
