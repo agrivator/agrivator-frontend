@@ -6,16 +6,9 @@ import PrimaryButton from './components/PrimaryButton'
 import TextDisplay from './components/TextDisplay'
 import GetProducts from './helpers/GetProducts'
 
-class Home extends Component {
-    constructor(props) {
-        super(props)
+const Home = () => {
+    
 
-        this.state = {
-                 
-        }
-    }
-
-    render() {
         return (
             <div>
                 <Navbar/>
@@ -32,7 +25,6 @@ class Home extends Component {
                 </div>
             </div>
         )
-    }
 }
 
 export default Home
