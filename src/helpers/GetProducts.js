@@ -1,34 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 
 import ViewDataCard from '../components/ViewDataCard';
 
 import { getProducts } from './ProductService';
+import { ProductContext } from './../context/ProductContext';
 
 const GetProducts = () => {
     const [products, setProducts] = useState([]);
+    const { productsGlobal, setProductsGlobal } = useContext(ProductContext);
 
     useEffect(() => {
         (async () => {
             const resData = await getProducts();
+            setProductsGlobal(resData);
             const flatResData = flattenProducts(resData);
-            console.log(flatResData)
             setProducts(flatResData);
         })();
 
     }, [])
-
-    //* This works
-    // let productsModded = [];
-    // products.forEach(product => {
-    //     product.product_inventories.forEach(product_inventory => {
-    //         console.log(`${product.name} - ${product_inventory.unit} - ${product_inventory.price}`)
-    //         const newProd = {...product, product_inventory};
-    //         productsModded.push(newProd)
-    //     })
-    // }) 
-    
-    
 
 
     // *Function that flattens product_inventories array
@@ -43,6 +33,7 @@ const GetProducts = () => {
         })
         return productsModded;
     }
+
 
 
 
