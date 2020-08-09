@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 
 import ViewDataCard from '../components/ViewDataCard';
 
 import { getProducts } from './ProductService';
+import { ProductContext } from './../context/ProductContext';
 
 const GetProducts = () => {
     const [products, setProducts] = useState([]);
+    const { productsGlobal, setProductsGlobal } = useContext(ProductContext);
 
     useEffect(() => {
         (async () => {
             const resData = await getProducts();
+            setProductsGlobal(resData);
             const flatResData = flattenProducts(resData);
-            console.log(flatResData)
             setProducts(flatResData);
         })();
 
@@ -31,6 +33,7 @@ const GetProducts = () => {
         })
         return productsModded;
     }
+
 
 
 
