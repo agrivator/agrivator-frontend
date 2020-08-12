@@ -15,22 +15,22 @@ class ProductProvider extends Component {
     // need a good auth 
     // just for working....
    
-    login= async()=>{
-        const response = await axios.post(`${baseUrl}/auth/local`, {
-            identifier: "jithinksatheesh@gmail.com",
-            password:"password123"
-        })
-        this.setState({AuthData:response.data})
-        console.log(response.data)
-        const token = response.data.jwt
-        const user = response.data.user
-        localStorage.setItem('token', token);
-        localStorage.setItem('user', JSON.stringify(user)); 
-        console.log(token)
-        console.log("login called")
+    // login= async()=>{
+    //     const response = await axios.post(`${baseUrl}/auth/local`, {
+    //         identifier: "jithinksatheesh@gmail.com",
+    //         password:"password123"
+    //     })
+    //     this.setState({AuthData:response.data})
+    //     console.log(response.data)
+    //     const token = response.data.jwt
+    //     const user = response.data.user
+    //     localStorage.setItem('token', token);
+    //     localStorage.setItem('user', JSON.stringify(user)); 
+    //     console.log(token)
+    //     console.log("login called")
 
 
-    }
+    // }
 
      // =============================================
      // =============================================
@@ -41,7 +41,7 @@ class ProductProvider extends Component {
      // =============================================
     componentDidMount(){
         this.getProducts()
-        this.login()
+        
     }
 
     // =============================================
