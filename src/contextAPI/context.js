@@ -9,35 +9,8 @@ const ProductContext = React.createContext()
 class ProductProvider extends Component {
     state ={
         products:[],
-        AuthData:[]
     }
-    // =============================================
-    // need a good auth 
-    // just for working....
-   
-    // login= async()=>{
-    //     const response = await axios.post(`${baseUrl}/auth/local`, {
-    //         identifier: "jithinksatheesh@gmail.com",
-    //         password:"password123"
-    //     })
-    //     this.setState({AuthData:response.data})
-    //     console.log(response.data)
-    //     const token = response.data.jwt
-    //     const user = response.data.user
-
-    //     localStorage.setItem('token', token);
-    //     localStorage.setItem('user', JSON.stringify(user))
-        
-
-
-    // }
-
-     // =============================================
-     // =============================================
-     // =============================================
-     // =============================================
-     // =============================================
-     // =============================================
+    
      // =============================================
     componentDidMount(){
 
@@ -66,7 +39,20 @@ class ProductProvider extends Component {
     }
 
     postProduct = async (product) =>{
-        const res = axios.post(`${baseUrl}/products`,product)
+
+        const jwt = localStorage.getItem('token')
+        const user = localStorage.getItem('user')
+        const token = `Bearer ${jwt}`
+        console.log(token)
+        console.log(user)
+        console.log(product)
+        const res = axios.post(`${baseUrl}/products`,{
+            data:product,
+            headers: {
+              'Authorization': token
+            }
+          });
+        
         console.log(res)
     }
 
