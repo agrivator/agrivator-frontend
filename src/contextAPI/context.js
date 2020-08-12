@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useState } from 'react'
 import axios from "axios";
 
 // base url
@@ -15,23 +15,22 @@ class ProductProvider extends Component {
     // need a good auth 
     // just for working....
    
-    login= async()=>{
-        const response = await axios.post(`${baseUrl}/auth/local`, {
-            identifier: "jithinksatheesh@gmail.com",
-            password:"password123"
-        })
-        this.setState({AuthData:response.data})
-        console.log(response.data)
-        const token = response.data.jwt
-        const user = response.data.user
-        localStorage.setItem('token', token);
-        localStorage.setItem('user', JSON.stringify(user))
-        // setJwt(data.token)
-        console.log(token)
-        console.log("login called")
+    // login= async()=>{
+    //     const response = await axios.post(`${baseUrl}/auth/local`, {
+    //         identifier: "jithinksatheesh@gmail.com",
+    //         password:"password123"
+    //     })
+    //     this.setState({AuthData:response.data})
+    //     console.log(response.data)
+    //     const token = response.data.jwt
+    //     const user = response.data.user
+
+    //     localStorage.setItem('token', token);
+    //     localStorage.setItem('user', JSON.stringify(user))
+        
 
 
-    }
+    // }
 
      // =============================================
      // =============================================
