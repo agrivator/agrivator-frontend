@@ -47,7 +47,7 @@
   }
   
   .btn-now:hover{
-    box-shadow: 0px 0px 20px rgb(36, 182, 41);
+    background-color: #20ac20;
   }
   
   .card-1 input[type=text]{

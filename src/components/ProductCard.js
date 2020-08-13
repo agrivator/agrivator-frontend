@@ -117,7 +117,7 @@ class ProductCard extends Component {
                                     {(!this.state.addStockForm)?
 
                                         <button
-                                            className="btn-now rounded-1  bg-primary-1 text-white"
+                                            className="btn-now rounded-1 btn-success "
                                             onClick={()=>{
                                                 
                                                 this.setState({addStockForm:true})
