@@ -20,6 +20,11 @@ class Navbar extends Component {
                         <li className="nav-item ">
                             <a className="nav-link smooth-goto" href="#about">Upload CSV</a>
                         </li>
+                        <li>
+                            <button className="btn btn-light">
+                                Log out
+                            </button>
+                        </li>
                     </ul>
                 </div>
             </nav>

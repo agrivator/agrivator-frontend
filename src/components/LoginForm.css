@@ -172,7 +172,7 @@ p       {
   position:relative; 
   margin-bottom:45px; 
 }
-input               {
+/* input               {
   font-size:18px;
   padding:10px 10px 10px 5px;
   display:block;
@@ -180,7 +180,7 @@ input               {
   border:none;
   border-bottom:1px solid #757575;
 }
-input:focus         { outline:none; }
+input:focus         { outline:none; } */
 
 /* LABEL ======================================= */
 label                {
@@ -197,7 +197,7 @@ label                {
 }
 
 /* active state */
-input:focus ~ label, input:valid ~ label        {
+/* input:focus ~ label, input:valid ~ label        {
   top:-20px;
   font-size:14px;
   color:green;
@@ -207,7 +207,7 @@ input:focus ~ label, input:valid ~ label        {
 /* active state */
 input:focus ~ .bar:before, input:focus ~ .bar:after {
   width:50%;
-}
+} */
 
 /* HIGHLIGHTER ================================== */
 .highlight {

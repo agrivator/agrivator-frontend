@@ -32,31 +32,19 @@ class ProductProvider extends Component {
         const data = res.data;
         this.setState({products:data})
     }
-
     // function to trigger fetching process of data...
     loadProducts = ()=>{
         this.getProducts()
     }
 
+
+
     postProduct = async (product) =>{
-
-
-        const jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMDlmZWY4MjQwOTMzMDAxN2Q4OWQyZSIsImlhdCI6MTU5NzI1NzMyNSwiZXhwIjoxNTk5ODQ5MzI1fQ.ZgQhO2MuuZDAIXrn1qi2oC32It6nwBDJU2FaEQ-3oNI"
-        // const jwt = localStorage.getItem('token')
-        const user = localStorage.getItem('user')
+        // const jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmMDlmZWY4MjQwOTMzMDAxN2Q4OWQyZSIsImlhdCI6MTU5NzI1NzMyNSwiZXhwIjoxNTk5ODQ5MzI1fQ.ZgQhO2MuuZDAIXrn1qi2oC32It6nwBDJU2FaEQ-3oNI"
+        const jwt = localStorage.getItem('token')
         const token = `Bearer ${jwt}`
-        console.log("Token:", token)
-        // console.log(user)
-        console.log("Reg data:", product)
-
-        // The error was 
-        // 1. The way we set the Authorization header.
-        // 2. The product object contained some data that wasn't supposed to filled by the user.
-        // 3. axios.post is an async function. So either use await. or use callback functions.
-
-        // 1. During Login time, do this also. Or set this data from localstorage or something. Idk how that works.
         axios.defaults.headers.common['Authorization'] = `Bearer ${jwt}`
-        // 2. During product creation, only send these fields. Other fields, like created_by and all are filled by the server.
+
         const res = await axios.post(`${baseUrl}/products`, {
             name: product['name'],
             description: product['description'],
@@ -64,7 +52,52 @@ class ProductProvider extends Component {
             subCategory: product['subCategory']
         });
         console.log("res:", res)
+
+        this.loadProducts()
     }
+
+
+
+    putProductStock = async(id) =>{
+        console.log("put product",id)
+    }
+
+
+
+    postInventory = async(inventory)=>{
+
+        const jwt = localStorage.getItem('token')
+        const token = `Bearer ${jwt}`
+        axios.defaults.headers.common['Authorization'] = `Bearer ${jwt}`
+
+        const res = await axios.post(`${baseUrl}/product-inventories`, {
+            product:inventory.product,
+            unit:inventory.unit,
+            type:inventory.type,
+            price:inventory.price,
+            loose:inventory.loose
+
+        });
+        if(res.status == 200)
+        {
+            this.loadProducts()
+        }
+        console.log(res)
+
+    }
+
+    deleteInventory = async(id)=>{
+        
+        const jwt = localStorage.getItem('token')
+        const token = `Bearer ${jwt}`
+        axios.defaults.headers.common['Authorization'] = `Bearer ${jwt}`
+
+        const res = await axios.delete(`${baseUrl}/product-inventories/${id}`)
+        console.log(res)
+        this.loadProducts()
+
+    }
+
 
     // =========================================
     // sending all state and functions through context provider
@@ -75,6 +108,9 @@ class ProductProvider extends Component {
             <ProductContext.Provider value={{
                 ...this.state,
                 postProduct:this.postProduct,
+                putProductStock:this.putProductStock,
+                postInventory:this.postInventory,
+                deleteInventory:this.deleteInventory
 
             }}>
                 {this.props.children}

@@ -14,6 +14,15 @@ class ProductForm extends Component {
         this.handleChange = this.handleChange.bind(this)
     }
 
+    clearState=()=>{
+        this.setState({
+            name: "",
+            category: "fruitsAndVegetables",
+            subCategory: "vegetables",
+            description: ""
+        })
+    }
+
 
     handleChange(event){
         const {name,type,value,checked} = event.target
@@ -42,7 +51,7 @@ class ProductForm extends Component {
                                 &nbsp;
                                 Product name </label>
                             <div className="col-sm-4">
-                                <input type="text" className="form-control" id="inputPassword" name="name" value={this.state.name} onChange={this.handleChange}/>
+                                <input type="text" className="form-control"  name="name" value={this.state.name} onChange={this.handleChange}/>
                             </div>
                         </div>
 
@@ -52,7 +61,7 @@ class ProductForm extends Component {
                                 &nbsp;
                                 Category </label>
                             <div className="col-sm-4">
-                                <input type="text" className="form-control" id="inputPassword" name="category" value={this.state.category} onChange={this.handleChange} />
+                                <input type="text" className="form-control"  name="category" value={this.state.category} onChange={this.handleChange} />
                             </div>
                         </div>
 
@@ -62,7 +71,7 @@ class ProductForm extends Component {
                                 &nbsp;
                                 Subcategory </label>
                             <div className="col-sm-4">
-                                <input type="text" className="form-control" id="inputPassword" name="subCategory" value={this.state.subCategory} onChange={this.handleChange} />
+                                <input type="text" className="form-control"  name="subCategory" value={this.state.subCategory} onChange={this.handleChange} />
                             </div>
                         </div>
 
@@ -72,7 +81,7 @@ class ProductForm extends Component {
                                 &nbsp;
                                 Description </label>
                             <div className="col-sm-4">
-                                <input type="text" className="form-control" id="inputPassword" name="description" value={this.state.description}  onChange={this.handleChange}/>
+                                <input type="text" className="form-control"  name="description" value={this.state.description}  onChange={this.handleChange}/>
                             </div>
                         </div>
 
@@ -95,6 +104,7 @@ class ProductForm extends Component {
                                             }
                                             console.log(product)
                                             value.postProduct(product)
+                                            this.clearState()
                                         }}
                                     
                                     >SUBMIT</button>
