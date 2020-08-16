@@ -68,7 +68,7 @@ class ProductStockForm extends Component {
                                             loose:this.state.loose,
                                             product:this.props.productID
                                         }
-                                        console.log(inventory)
+                                        // console.log(inventory)
                                         value.postInventory(inventory)
                                         this.clearState()
                                     }}

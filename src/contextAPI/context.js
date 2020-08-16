@@ -19,12 +19,15 @@ class ProductProvider extends Component {
     }
 
     // =============================================
-     // =============================================
-     // =============================================
-     // =============================================
-     // =============================================
-     // =============================================
-     // =============================================
+    // =============================================
+    
+
+
+    logout = () => {
+        delete axios.defaults.headers.common['Authorization']
+        localStorage.removeItem('token')
+        
+    }
 
 
     getProducts = async () =>{
@@ -52,8 +55,37 @@ class ProductProvider extends Component {
             subCategory: product['subCategory']
         });
         console.log("res:", res)
+        if(res.status === 200)
+        {
+            let newProductsState = [...this.state.products,res.data]
+            this.setState({
+                products:newProductsState
+            })
+        }
 
-        this.loadProducts()
+
+        // this.loadProducts()
+    }
+
+    deleteProduct = async(id)=>{
+
+        const jwt = localStorage.getItem('token')
+        const token = `Bearer ${jwt}`
+        axios.defaults.headers.common['Authorization'] = `Bearer ${jwt}`
+
+        const res = await axios.delete(`${baseUrl}/products/${id}`)
+        console.log(res)
+        if(res.status == 200)
+        {
+            let newProductState = this.state.products.filter(p => p.id !== res.data.id)
+            this.setState({
+                products:newProductState
+            })
+
+        }
+        
+        // this.loadProducts()
+
     }
 
 
@@ -78,13 +110,25 @@ class ProductProvider extends Component {
             loose:inventory.loose
 
         });
+
+        // update state 
         if(res.status == 200)
         {
-            this.loadProducts()
+            let newProductState = this.state.products.map((p)=>{
+                if(p.id === res.data.product.id){
+                    p.product_inventories.push(res.data)
+                }
+                return p
+            })
+            this.setState({
+                products:newProductState
+            })
         }
         console.log(res)
 
     }
+
+    // detete Inventory
 
     deleteInventory = async(id)=>{
         
@@ -94,9 +138,26 @@ class ProductProvider extends Component {
 
         const res = await axios.delete(`${baseUrl}/product-inventories/${id}`)
         console.log(res)
-        this.loadProducts()
+
+        if(res.status === 200)
+        {
+            let newProductState = this.state.products.map((p)=>{
+                if(p.id === res.data.product.id){
+                    p.product_inventories = p.product_inventories.filter(data => data.id !== res.data.id)
+                }
+                return p
+            })
+            this.setState({
+                products:newProductState
+            })
+            
+        }
+
+
 
     }
+
+    
 
 
     // =========================================
@@ -107,10 +168,12 @@ class ProductProvider extends Component {
         return (
             <ProductContext.Provider value={{
                 ...this.state,
+                logout:this.logout,
                 postProduct:this.postProduct,
                 putProductStock:this.putProductStock,
                 postInventory:this.postInventory,
-                deleteInventory:this.deleteInventory
+                deleteInventory:this.deleteInventory,
+                deleteProduct:this.deleteProduct
 
             }}>
                 {this.props.children}

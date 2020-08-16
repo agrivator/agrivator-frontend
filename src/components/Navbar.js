@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom';
+import {ProductConsumer} from '../contextAPI/context'
 
 class Navbar extends Component {
     render() {
@@ -21,9 +22,23 @@ class Navbar extends Component {
                             <a className="nav-link smooth-goto" href="#about">Upload CSV</a>
                         </li>
                         <li>
-                            <button className="btn btn-light">
-                                Log out
-                            </button>
+                        <ProductConsumer>
+                            {(value)=>{
+                                return(
+                                    <NavLink to="login">
+                                        <button className="btn btn-light"
+                                            onClick={()=>{
+                                                value.logout()
+                                            }}
+                                        >
+                                            Log out
+                                        </button>
+
+                                    </NavLink>
+                                )
+                            }}
+                        </ProductConsumer>
+                            
                         </li>
                     </ul>
                 </div>

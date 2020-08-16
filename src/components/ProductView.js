@@ -21,7 +21,10 @@ class ProductView extends Component {
                                 :""}
                                 {/* ===================================== */}
                                 {value.products.map((product)=>{
-                                    return <ProductCard product={product} key={product.id} deleteInventory={value.deleteInventory}  />
+                                    return <ProductCard product={product} key={product.id} 
+                                                        deleteInventory={value.deleteInventory}   
+                                                        deleteProduct={value.deleteProduct}
+                                                        />
                                 })}
                             </>
                         )

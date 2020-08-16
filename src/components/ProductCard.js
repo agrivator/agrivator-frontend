@@ -16,6 +16,8 @@ class ProductCard extends Component {
                 <div className="card-1">
                     <div className="row alert">
                         <div className="col-12 ">
+                            {/* {console.log(this.props.product)} */}
+                            {/* {console.log(this.props.product.length)} */}
                             <table className="table tabel-responsive">
                                 <tbody>
                                     <tr className="alert-success">
@@ -138,22 +140,41 @@ class ProductCard extends Component {
                                             >
                                             <svg fill="white" width="14" height="14" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
                                             &nbsp;
-                                            Cancel
+                                            Done
                                         </button>
                                     
                                     }
+                                        {/* =========================================== */}
+                                        &nbsp;&nbsp;
+                                        {(this.props.product.product_inventories.length===0)?
+                                            <button
+                                                className="btn-now rounded-1  bg-danger text-white"
+                                                onClick={()=>{
+                                                    this.props.deleteProduct(this.props.product.id)
+                                                    console.log("delete")
+                                                }}
+                                                >
+                                                <svg fill="white" width="14" height="14" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"/></svg>
+                                                &nbsp;
+                                                Delete Product
+                                            </button>
+                                            :
+                                            <div className="small">
+                                                <div className="space-20"></div>
+                                                <div className="alert  alert-info">
+                                                    Product entry can only be deleted after clearing all stocks
+                                                </div>
+                                            </div>
+                                            
+                                        }
                                         
 
+                                        {/* =========================================== */}
                                         </td>
-                                    </tr>
-                                    
-                                    
-                                
-                               
+                                    </tr>    
                             </tbody>
                         </table>
                     </div>
-                    <div className="space-20"></div>
                 </div>
                 <div className="space-20"></div>
                 </>

@@ -28,17 +28,17 @@ class LoginForm extends Component {
                         <div className="container">
                             <form>
                                 <div className="group">      
-                                  <input type="text" required />
+                                  <input type="text" required className="form-control"  placeholder="username"/>
                                   <span className="highlight"></span>
                                   <span className="bar"></span>
-                                  <label>Username</label>
+                                  
                                 </div>
                                   
                                 <div className="group">      
-                                  <input type="Password" required />
+                                  <input type="Password" className="form-control" required  placeholder="password"/>
                                   <span className="highlight"></span>
                                   <span className="bar"></span>
-                                  <label>Password</label><br /> <br />
+                                  <br /> <br />
                                   <button className="btn btn-success " onClick={this.props.submitHandler} >Login</button>
                                 
                                 </div>
